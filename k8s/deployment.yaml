@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello-world
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: hello-world
@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: nginx
+        image: hello-world:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: html-volume
-          mountPath: /usr/share/nginx/html
-      volumes:
-      - name: html-volume
-        configMap:
-          name: hello-world-html
-
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
