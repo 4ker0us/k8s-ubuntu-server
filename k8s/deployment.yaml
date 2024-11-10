@@ -14,8 +14,9 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: hello-world:latest
-        imagePullPolicy: Never
+        # Usamos localhost para referenciar el registro local
+        image: localhost:5000/hello-world:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:
