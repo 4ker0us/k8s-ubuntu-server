@@ -6,13 +6,13 @@ Una aplicación demo simple que muestra un "Hola Mundo" usando Docker y Kubernet
 
 ```bash
 # 1. Descargar el script de instalación
-wget https://raw.githubusercontent.com/tu-usuario/tu-repositorio/main/quick-install.sh
+wget https://raw.githubusercontent.com/4ker0us/k8s-ubuntu-server/main/install.sh
 
 # 2. Dar permisos de ejecución
-chmod +x quick-install.sh
+chmod +x install.sh
 
 # 3. Ejecutar la instalación
-sudo ./quick-install.sh
+sudo ./install.sh
 ```
 
 Una vez instalado, accede a la aplicación en:

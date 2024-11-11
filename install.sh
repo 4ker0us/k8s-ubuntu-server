@@ -20,7 +20,7 @@ cd $WORK_DIR
 
 # 2. Descargar archivos necesarios
 echo -e "${YELLOW}📦 Descargando archivos...${NC}"
-wget -q https://raw.githubusercontent.com/$REPO_USER/$REPO_NAME/main/Dockerfile
+wget -q https://raw.githubusercontent.com/$REPO_USER/$REPO_NAME/main/app/Dockerfile -P app/
 wget -q https://raw.githubusercontent.com/$REPO_USER/$REPO_NAME/main/app/index.html -P app/
 wget -q https://raw.githubusercontent.com/$REPO_USER/$REPO_NAME/main/k8s/deployment.yaml -P k8s/
 wget -q https://raw.githubusercontent.com/$REPO_USER/$REPO_NAME/main/k8s/service.yaml -P k8s/
@@ -53,7 +53,7 @@ docker run -d -p 5000:5000 --restart=always --name registry registry:2 2>/dev/nu
 
 # 7. Construir y desplegar
 echo -e "${YELLOW}🏗️  Construyendo y desplegando...${NC}"
-docker build -t hello-world .
+docker build -t hello-world -f app/Dockerfile app/
 docker tag hello-world localhost:5000/hello-world
 docker push localhost:5000/hello-world
 
